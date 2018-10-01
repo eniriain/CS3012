@@ -63,18 +63,4 @@ import static org.junit.Assert.*;
 			assertSame(LowestCommonAncestor(test.root,9,9),9);
 			assertSame(test.search(test.root,9,9).key,9);
 		}
-		@Test
-		public void testGet()
-		{
-			LowestCommonAncestor<Integer> bst = new LowestCommonAncestor<Integer>(); 	
-			assertSame("test get empty tree", null, bst.get(7));
-			bst.put(1);
-			assertSame("test single tree", 1, bst.get(1));
-			bst.put(2);
-			bst.put(4);
-			bst.put(5);
-			assertSame("test value larger than root",4, bst.get(4));
-			assertSame("test value smaller than root", 2, bst.get(2));
-			assertSame("test value larger but not in tree", null, bst.get(11));
-		}
 	}
