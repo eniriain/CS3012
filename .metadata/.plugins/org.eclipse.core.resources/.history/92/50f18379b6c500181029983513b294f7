@@ -30,26 +30,10 @@ import static org.junit.Assert.*;
 	public void testNotInTree()
 	{
 		
- 		BST<Integer> test = new BST<Integer>();
-		test.put(9);
-		test.put(1);
-		test.put(4);
-		test.put(19);
-		test.put(9);
-		test.put(13);
-		assertNull(LeastCommonAncestor(test.root,19,3));
 	}
 	@Test // test when v1 and v2 are the same value
 	public void testSameValue()
 	{
 		
-		BST<Integer> test = new BST<Integer>();
-		test.put(9);
-		test.put(1);
-		test.put(4);
-		test.put(19);
-		test.put(9);
-		test.put(13);
-		assertSame(LeastCommonAncestor(test.root,9,9),9);
 	}
 }
