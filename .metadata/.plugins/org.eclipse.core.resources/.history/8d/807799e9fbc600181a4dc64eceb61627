@@ -82,20 +82,4 @@ import static org.junit.Assert.*;
 			assertSame("test value smaller than root", 2, bst.get(2));
 			assertSame("test value larger but not in tree", null, bst.get(11));
 		}
-		@Test 
-		public void testIsAcyclic()
-		{
-			LowestCommonAncestor test = new LowestCommonAncestor();
-			Node b = new Node(1,"B");
-			test.put(b);
-			assertTrue(test.isAcyclic());// test single node
-			Node a = new Node(1,"A");
-			test.put(a);
-			b.addEdgeTo(a);
-			assertTrue(test.isAcyclic); // test two nodes acyclic
-			a.addEdgeTo(b);
-			assertFalse(test.isAcyclic); // test two nodes cyclic
-			
-			
-		}
 	}
