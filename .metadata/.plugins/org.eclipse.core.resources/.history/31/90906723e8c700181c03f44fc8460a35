@@ -1,0 +1,76 @@
+import static org.junit.Assert.*;
+ import org.junit.Test;
+ public class LCAtest {
+	 @Test // test with no nodes
+		public void testEmpty() {
+			LeastCommonAncestor<Integer> testBST = new LeastCommonAncestor<Integer>();
+			LeastCommonAncestor testBST = new LeastCommonAncestor();
+			
+			assertNull( testBST.search(testBST.root, 7, 1));
+		}
+	 	@Test // test with only one node in
+		public void testSingle()
+		{
+			LeastCommonAncestor<Integer> testBST = new LeastCommonAncestor<Integer>();
+			LeastCommonAncestor testBST = new LeastCommonAncestor();
+			testBST.put(7);
+			assertNull(testBST.search(testBST.root,1,3));
+			
+	@@ -24,7 +24,7 @@ public void testSingle()
+		@Test // test with multiple nodes
+		public void testPopulated()
+		{
+			LeastCommonAncestor<Integer> test = new LeastCommonAncestor<Integer>();
+			LeastCommonAncestor test = new LeastCommonAncestor();
+			test.put(9);
+			test.put(1);
+			test.put(4);
+	@@ -45,7 +45,7 @@ public void testPopulated()
+		public void testNotInTree()
+		{
+	 		LeastCommonAncestor<Integer> test = new LeastCommonAncestor<Integer>();
+			LeastCommonAncestor test = new LeastCommonAncestor();
+			test.put(9);
+			test.put(1);
+			test.put(4);
+	@@ -63,7 +63,7 @@ public void testNotInTree()
+		@Test // test when v1 and v2 are the same value
+		public void testSameValue()
+		{
+			LeastCommonAncestor<Integer> test = new LeastCommonAncestor<Integer>();
+			LeastCommonAncestor test = new LeastCommonAncestor();
+			test.put(9);
+			test.put(1);
+			test.put(4);
+	@@ -74,20 +74,7 @@ public void testSameValue()
+			assertSame(test.search(test.root,19,19).key,19);
+		}
+		
+		@Test
+		public void testGet()
+		{
+			LeastCommonAncestor<Integer> bst = new LeastCommonAncestor<Integer>(); 	
+			assertNull("test get empty tree", bst.get(7));
+			bst.put(1);
+			assertSame("test single tree", 1, bst.get(1).key);
+			bst.put(2);
+			bst.put(4);
+			bst.put(5);
+			assertSame("test value larger than root",4, bst.get(4).key);
+			assertSame("test value smaller than root", 2, bst.get(2).key);
+			assertSame("test value larger but not in tree", null, bst.get(11));
+		}
+	 	@Test 
+		public void testIsAcyclic()
+	@@ -99,9 +86,9 @@ public void testIsAcyclic()
+			Node a = new Node(1,"A");
+			test.put(a);
+			b.addEdgeTo(a);
+			assertTrue(test.isAcyclic); // test two nodes acyclic
+			assertTrue(test.isAcyclic()); // test two nodes acyclic
+			a.addEdgeTo(b);
+			assertFalse(test.isAcyclic); // test two nodes cyclic
+			assertFalse(test.isAcyclic()); // test two nodes cyclic
+			
+			
+		}
