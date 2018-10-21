@@ -65,31 +65,4 @@ public class DagLCAtest {
 		assertEquals("LCA when it is cyclical",-1,test1.LCA(3, 1));
 		
 	}
-	@Test(expected = IllegalArgumentException.class) 
-	public void testExceptionThrowers() // tested through the adj function giving errors
-	{
-		DagLCA test = new DagLCA(6);
-		test.adj(-1);
-		test.adj(88);
-		test.LCA(1, -1);//not possible to have it 
-		test.LCA(1, 88);//and the vertex is out of bounds
-		DagLCA test2 = new DagLCA(-4); //shouldnt have negative vertices for our purposes
-	}
-	
-	@Test 
-	public void testReverse()
-	{
-		DagLCA test1 = new DagLCA(10);
-		test1.addEdge(1, 2);
-		test1.addEdge(0, 1);
-		DagLCA testReverse = test1.reverse();
-		assertSame("Edges should be the same", testReverse.E(),test1.E());
-		assertSame("shouldnt lose vertices", testReverse.V(),test1.V());
-		DagLCA test2 = new DagLCA(25);
-		DagLCA rev2 = test2.reverse();
-		assertSame("Edges should be the same", rev2.E(),test2.E());
-		assertSame("shouldnt lose vertices", rev2.V(),test2.V());
-	}
-	
-	
 }
